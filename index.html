@@ -1,0 +1,1351 @@
+<!doctype html>
+<html lang="id">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Legends Guide - Panduan Lengkap</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Rajdhani:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 50%, #4a1d6e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circuit" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 0 10 L 10 10 L 10 0 M 10 10 L 20 10 M 10 10 L 10 20" fill="none" stroke="rgba(168,85,247,0.15)" stroke-width="0.5"/><circle cx="10" cy="10" r="1" fill="rgba(168,85,247,0.3)"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>');
+            animation: circuitFlow 20s linear infinite;
+        }
+        
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hexagon" width="30" height="26" patternUnits="userSpaceOnUse"><polygon points="15,2 25,8 25,18 15,24 5,18 5,8" fill="none" stroke="rgba(168,85,247,0.08)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23hexagon)"/></svg>');
+            opacity: 0.5;
+        }
+        
+        @keyframes circuitFlow {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-20px) translateY(-20px); }
+        }
+        
+        .glass-effect {
+            background: rgba(45, 27, 78, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.2);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(26, 11, 46, 0.7);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+        }
+        
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, rgba(45, 27, 78, 0.9), rgba(74, 29, 110, 0.9));
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+            border-color: rgba(168, 85, 247, 0.5);
+        }
+        
+        .gaming-btn {
+            background: linear-gradient(45deg, #7c3aed, #ec4899);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Orbitron', monospace;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .gaming-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .gaming-btn:hover::before {
+            left: 100%;
+        }
+        
+        .neon-text {
+            font-family: 'Orbitron', monospace;
+            text-shadow: 
+                0 0 5px #a855f7,
+                0 0 10px #a855f7,
+                0 0 15px #a855f7,
+                0 0 20px #a855f7;
+            animation: neonPulse 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes neonPulse {
+            from {
+                text-shadow: 
+                    0 0 5px #a855f7,
+                    0 0 10px #a855f7,
+                    0 0 15px #a855f7,
+                    0 0 20px #a855f7;
+            }
+            to {
+                text-shadow: 
+                    0 0 2px #a855f7,
+                    0 0 5px #a855f7,
+                    0 0 8px #a855f7,
+                    0 0 12px #a855f7;
+            }
+        }
+        
+        .dark {
+            background-color: #1a0b2e;
+            color: #f0e6ff;
+        }
+        
+        .dark .bg-white {
+            background: linear-gradient(145deg, rgba(45, 27, 78, 0.95), rgba(74, 29, 110, 0.95)) !important;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+        
+        .dark .text-gray-800 {
+            color: #f0e6ff !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #c4b5fd !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: rgba(168, 85, 247, 0.3) !important;
+        }
+        
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .chatbot-window {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            z-index: 1001;
+        }
+        
+        .parallax {
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .counter-animation {
+            font-variant-numeric: tabular-nums;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+        }
+        
+        .gaming-card {
+            background: linear-gradient(145deg, rgba(26, 11, 46, 0.9), rgba(45, 27, 78, 0.9));
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .gaming-card:hover {
+            border-color: rgba(168, 85, 247, 0.6);
+            box-shadow: 
+                0 12px 40px rgba(124, 58, 237, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .neon-border {
+            border: 2px solid transparent;
+            background: linear-gradient(145deg, rgba(26, 11, 46, 0.9), rgba(45, 27, 78, 0.9)) padding-box,
+                        linear-gradient(45deg, #7c3aed, #ec4899) border-box;
+        }
+        
+        .stats-bg {
+            background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 100%);
+            position: relative;
+        }
+        
+        .stats-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(168,85,247,0.15)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            opacity: 0.4;
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .glow-effect:hover {
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.7);
+        }
+        
+        .cyber-text {
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            background: linear-gradient(45deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .7;
+            }
+        }
+
+        .portfolio-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+            border: 3px solid rgba(236, 72, 153, 0.3);
+        }
+
+        .skill-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(236, 72, 153, 0.2));
+            border: 1px solid rgba(168, 85, 247, 0.5);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 4px;
+            font-size: 14px;
+            color: #c4b5fd;
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.4), rgba(236, 72, 153, 0.4));
+            border-color: rgba(168, 85, 247, 0.8);
+            transform: scale(1.05);
+        }
+
+        .achievement-item {
+            background: linear-gradient(145deg, rgba(45, 27, 78, 0.9), rgba(74, 29, 110, 0.9));
+            border-left: 4px solid #ec4899;
+            padding: 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            border-left-color: #7c3aed;
+            transform: translateX(5px);
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="font-sans bg-gray-900 text-white"><!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 glass-effect">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+     <div class="flex items-center">
+      <div class="text-xl font-bold cyber-text" id="nav-title">
+       🎮 Mobile Legends Guide
+      </div>
+     </div>
+     <div class="hidden md:block">
+      <div class="ml-10 flex items-baseline space-x-4"><a href="#home" class="text-purple-300 hover:text-purple-100 px-3 py-2 rounded-md text-sm font-medium transition-colors font-semibold">Home</a> <a href="#heroes" class="text-purple-300 hover:text-purple-100 px-3 py-2 rounded-md text-sm font-medium transition-colors font-semibold">Heroes</a> <a href="#guides" class="text-purple-300 hover:text-purple-100 px-3 py-2 rounded-md text-sm font-medium transition-colors font-semibold">Guides</a> <a href="#events" class="text-purple-300 hover:text-purple-100 px-3 py-2 rounded-md text-sm font-medium transition-colors font-semibold">Events</a> <a href="#gallery" class="text-purple-300 hover:text-purple-100 px-3 py-2 rounded-md text-sm font-medium transition-colors font-semibold">Gallery</a> <a href="#portfolio" class="text-purple-300 hover:text-purple-100 px-3 py-2 rounded-md text-sm font-medium transition-colors font-semibold">Portfolio</a> <a href="#contact" class="text-purple-300 hover:text-purple-100 px-3 py-2 rounded-md text-sm font-medium transition-colors font-semibold">Contact</a>
+      </div>
+     </div>
+     <div class="flex items-center space-x-4"><!-- Language Switcher --> <select id="language-switcher" class="bg-transparent text-purple-300 border border-purple-400/30 rounded px-2 py-1 text-sm"> <option value="id" class="text-black">🇮🇩 ID</option> <option value="en" class="text-black">🇺🇸 EN</option> </select> <!-- Dark Mode Toggle --> <button id="theme-toggle" class="text-purple-300 hover:text-purple-100 p-2 rounded-md transition-colors"> <i class="fas fa-moon"></i> </button> <!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden text-purple-300 hover:text-purple-100 p-2"> <i class="fas fa-bars"></i> </button>
+     </div>
+    </div>
+   </div><!-- Mobile Menu -->
+   <div id="mobile-menu" class="md:hidden hidden bg-black/70 backdrop-blur-lg">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3"><a href="#home" class="text-purple-300 hover:text-purple-100 block px-3 py-2 rounded-md text-base font-medium">Home</a> <a href="#heroes" class="text-purple-300 hover:text-purple-100 block px-3 py-2 rounded-md text-base font-medium">Heroes</a> <a href="#guides" class="text-purple-300 hover:text-purple-100 block px-3 py-2 rounded-md text-base font-medium">Guides</a> <a href="#events" class="text-purple-300 hover:text-purple-100 block px-3 py-2 rounded-md text-base font-medium">Events</a> <a href="#gallery" class="text-purple-300 hover:text-purple-100 block px-3 py-2 rounded-md text-base font-medium">Gallery</a> <a href="#portfolio" class="text-purple-300 hover:text-purple-100 block px-3 py-2 rounded-md text-base font-medium">Portfolio</a> <a href="#contact" class="text-purple-300 hover:text-purple-100 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+    </div>
+   </div>
+  </nav><!-- Hero Section -->
+  <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative">
+   <div class="text-center text-white z-10 px-4">
+    <h1 id="hero-title" class="text-5xl md:text-7xl font-bold mb-6 float-animation neon-text" style="font-family: 'Orbitron', monospace;">Bergabunglah dan Jadilah Legenda!</h1>
+    <p id="hero-subtitle" class="text-xl md:text-2xl mb-8 opacity-90 font-medium text-purple-200">Panduan lengkap untuk menguasai Mobile Legends</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center"><button class="gaming-btn text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 glow-effect"> ⚡ Mulai Belajar </button> <button class="border-2 border-purple-400 text-purple-300 hover:bg-purple-400 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all glow-effect"> 🎯 Lihat Heroes </button>
+    </div>
+   </div><!-- Floating Gaming Elements -->
+   <div class="absolute top-20 left-10 text-6xl opacity-20 float-animation">
+    🎮
+   </div>
+   <div class="absolute top-40 right-20 text-4xl opacity-20 float-animation" style="animation-delay: 1s;">
+    ⚔️
+   </div>
+   <div class="absolute bottom-40 left-20 text-5xl opacity-20 float-animation" style="animation-delay: 2s;">
+    🏆
+   </div><!-- Search Bar -->
+   <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-full max-w-md px-4">
+    <div class="glass-effect rounded-lg p-4 glow-effect">
+     <div class="relative"><input type="text" id="main-search" placeholder="🔍 Cari hero, item, atau guide..." class="w-full bg-black/30 text-purple-100 placeholder-purple-300/70 border border-purple-400/30 rounded-lg px-4 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"> <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-300/70"></i>
+     </div>
+    </div>
+   </div>
+  </section>
+  <div class="flex flex-col lg:flex-row"><!-- Main Content -->
+   <main class="flex-1 lg:mr-80"><!-- Statistics Counter -->
+    <section class="py-16 stats-bg relative z-10">
+     <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+       <div class="scroll-animate gaming-card rounded-lg p-6 glow-effect">
+        <div class="counter-animation text-4xl font-bold cyber-text" data-target="1250000">
+         0
+        </div>
+        <p class="text-purple-300 mt-2 font-medium">Pemain Aktif</p>
+       </div>
+       <div class="scroll-animate gaming-card rounded-lg p-6 glow-effect">
+        <div class="counter-animation text-4xl font-bold cyber-text" data-target="120">
+         0
+        </div>
+        <p class="text-purple-300 mt-2 font-medium">Heroes Available</p>
+       </div>
+       <div class="scroll-animate gaming-card rounded-lg p-6 glow-effect">
+        <div class="counter-animation text-4xl font-bold cyber-text" data-target="500">
+         0
+        </div>
+        <p class="text-purple-300 mt-2 font-medium">Guides Published</p>
+       </div>
+       <div class="scroll-animate gaming-card rounded-lg p-6 glow-effect">
+        <div class="counter-animation text-4xl font-bold cyber-text" data-target="50000">
+         0
+        </div>
+        <p class="text-purple-300 mt-2 font-medium">Daily Visitors</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Heroes Section -->
+    <section id="heroes" class="py-16 bg-gray-900">
+     <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12 scroll-animate">
+       <h2 class="text-4xl font-bold cyber-text mb-4" style="font-family: 'Orbitron', monospace;">🎯 Popular Heroes</h2>
+       <p class="text-purple-300 text-lg">Temukan hero favorit dan pelajari strategi terbaik</p>
+      </div><!-- Hero Filter -->
+      <div class="flex flex-wrap justify-center gap-4 mb-8 scroll-animate"><button class="hero-filter active gaming-btn text-white px-4 py-2 rounded-lg" data-role="all">All</button> <button class="hero-filter bg-gray-800 text-purple-300 hover:bg-gray-700 border border-purple-400/30 px-4 py-2 rounded-lg glow-effect" data-role="tank">🛡️ Tank</button> <button class="hero-filter bg-gray-800 text-purple-300 hover:bg-gray-700 border border-purple-400/30 px-4 py-2 rounded-lg glow-effect" data-role="marksman">🏹 Marksman</button> <button class="hero-filter bg-gray-800 text-purple-300 hover:bg-gray-700 border border-purple-400/30 px-4 py-2 rounded-lg glow-effect" data-role="mage">🔮 Mage</button> <button class="hero-filter bg-gray-800 text-purple-300 hover:bg-gray-700 border border-purple-400/30 px-4 py-2 rounded-lg glow-effect" data-role="assassin">🗡️ Assassin</button> <button class="hero-filter bg-gray-800 text-purple-300 hover:bg-gray-700 border border-purple-400/30 px-4 py-2 rounded-lg glow-effect" data-role="fighter">⚔️ Fighter</button> <button class="hero-filter bg-gray-800 text-purple-300 hover:bg-gray-700 border border-purple-400/30 px-4 py-2 rounded-lg glow-effect" data-role="support">💚 Support</button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="heroes-grid"><!-- Hero cards will be populated by JavaScript -->
+      </div>
+     </div>
+    </section><!-- Guides Section -->
+    <section id="guides" class="py-16 stats-bg">
+     <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12 scroll-animate">
+       <h2 class="text-4xl font-bold cyber-text mb-4" style="font-family: 'Orbitron', monospace;">📚 Latest Guides</h2>
+       <p class="text-purple-300 text-lg">Artikel dan strategi terbaru dari para pro player</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+       <article class="gaming-card rounded-lg overflow-hidden hero-card scroll-animate">
+        <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center relative">
+         <div class="text-6xl">
+          📊
+         </div>
+         <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+        <div class="p-6">
+         <h3 class="text-xl font-bold text-white mb-2" style="font-family: 'Orbitron', monospace;">Meta Heroes Season 32</h3>
+         <p class="text-purple-300 mb-4">Panduan lengkap hero meta terkuat di season ini...</p>
+         <div class="flex items-center justify-between"><span class="text-sm text-gray-400">2 hari yang lalu</span> <button class="text-purple-400 hover:text-purple-300 font-semibold glow-effect">Baca Selengkapnya ⚡</button>
+         </div>
+        </div>
+       </article>
+       <article class="gaming-card rounded-lg overflow-hidden hero-card scroll-animate">
+        <div class="h-48 bg-gradient-to-r from-pink-500 to-rose-600 flex items-center justify-center relative">
+         <div class="text-6xl">
+          ⚔️
+         </div>
+         <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+        <div class="p-6">
+         <h3 class="text-xl font-bold text-white mb-2" style="font-family: 'Orbitron', monospace;">Build Item Terbaik</h3>
+         <p class="text-purple-300 mb-4">Rekomendasi build item untuk setiap role...</p>
+         <div class="flex items-center justify-between"><span class="text-sm text-gray-400">5 hari yang lalu</span> <button class="text-purple-400 hover:text-purple-300 font-semibold glow-effect">Baca Selengkapnya ⚡</button>
+         </div>
+        </div>
+       </article>
+       <article class="gaming-card rounded-lg overflow-hidden hero-card scroll-animate">
+        <div class="h-48 bg-gradient-to-r from-violet-500 to-purple-600 flex items-center justify-center relative">
+         <div class="text-6xl">
+          🏆
+         </div>
+         <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+        <div class="p-6">
+         <h3 class="text-xl font-bold text-white mb-2" style="font-family: 'Orbitron', monospace;">Tips Ranking Up</h3>
+         <p class="text-purple-300 mb-4">Strategi jitu untuk naik rank dengan cepat...</p>
+         <div class="flex items-center justify-between"><span class="text-sm text-gray-400">1 minggu yang lalu</span> <button class="text-purple-400 hover:text-purple-300 font-semibold glow-effect">Baca Selengkapnya ⚡</button>
+         </div>
+        </div>
+       </article>
+      </div>
+     </div>
+    </section><!-- Events Section -->
+    <section id="events" class="py-16 bg-gray-900">
+     <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12 scroll-animate">
+       <h2 class="text-4xl font-bold cyber-text mb-4" style="font-family: 'Orbitron', monospace;">🎉 Upcoming Events</h2>
+       <p class="text-purple-300 text-lg">Jangan lewatkan event dan turnamen menarik</p>
+      </div>
+      <div class="space-y-6">
+       <div class="neon-border rounded-lg p-6 text-white scroll-animate glow-effect">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+         <div>
+          <h3 class="text-2xl font-bold mb-2 cyber-text" style="font-family: 'Orbitron', monospace;">🏆 MPL Season 12</h3>
+          <p class="mb-4 text-purple-300">Turnamen profesional Mobile Legends terbesar di Indonesia</p>
+          <div class="flex items-center space-x-4 text-sm"><span class="text-purple-400"><i class="fas fa-calendar mr-2"></i>15 Desember 2024</span> <span class="text-yellow-400"><i class="fas fa-trophy mr-2"></i>Prize Pool: $100,000</span>
+          </div>
+         </div><button class="mt-4 md:mt-0 gaming-btn text-white px-6 py-2 rounded-lg font-semibold transition-all"> 🚀 Daftar Sekarang </button>
+        </div>
+       </div>
+       <div class="neon-border rounded-lg p-6 text-white scroll-animate glow-effect">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+         <div>
+          <h3 class="text-2xl font-bold mb-2 cyber-text" style="font-family: 'Orbitron', monospace;">⚡ Double BP Event</h3>
+          <p class="mb-4 text-purple-300">Dapatkan battle point 2x lipat selama event berlangsung</p>
+          <div class="flex items-center space-x-4 text-sm"><span class="text-purple-400"><i class="fas fa-calendar mr-2"></i>20-27 Desember 2024</span> <span class="text-green-400"><i class="fas fa-gift mr-2"></i>Bonus Rewards</span>
+          </div>
+         </div><button class="mt-4 md:mt-0 bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors glow-effect"> 🎯 Lihat Detail </button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Gallery Section -->
+    <section id="gallery" class="py-16 stats-bg">
+     <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12 scroll-animate">
+       <h2 class="text-4xl font-bold cyber-text mb-4" style="font-family: 'Orbitron', monospace;">🖼️ Gallery</h2>
+       <p class="text-purple-300 text-lg">Koleksi screenshot dan video gameplay terbaik</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+       <div class="relative group overflow-hidden rounded-lg scroll-animate gaming-card glow-effect">
+        <div class="h-64 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center"><i class="fas fa-play text-white text-4xl pulse-animation"></i>
+        </div>
+        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><button class="text-purple-400 text-2xl glow-effect"><i class="fas fa-expand"></i></button>
+        </div>
+       </div>
+       <div class="relative group overflow-hidden rounded-lg scroll-animate gaming-card glow-effect">
+        <div class="h-64 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center"><i class="fas fa-image text-white text-4xl pulse-animation"></i>
+        </div>
+        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><button class="text-purple-400 text-2xl glow-effect"><i class="fas fa-expand"></i></button>
+        </div>
+       </div>
+       <div class="relative group overflow-hidden rounded-lg scroll-animate gaming-card glow-effect">
+        <div class="h-64 bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center"><i class="fas fa-video text-white text-4xl pulse-animation"></i>
+        </div>
+        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><button class="text-purple-400 text-2xl glow-effect"><i class="fas fa-expand"></i></button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-gray-900">
+     <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12 scroll-animate">
+       <h2 class="text-4xl font-bold cyber-text mb-4" style="font-family: 'Orbitron', monospace;">👨‍💻 About Creator</h2>
+       <p class="text-purple-300 text-lg">Pelajari lebih lanjut tentang pembuat website ini</p>
+      </div><!-- Creator Profile Card -->
+      <div class="gaming-card rounded-lg p-8 mb-12 scroll-animate glow-effect">
+       <div class="text-center mb-8">
+        <div class="portfolio-avatar">
+         📚
+        </div>
+        <h3 id="creator-name" class="text-3xl font-bold text-white mb-2 cyber-text">Hadif Abyan</h3>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-4 text-purple-300"><span><i class="fas fa-school mr-2"></i>SMA Negeri 1 Subang</span> <span class="hidden md:inline">•</span> <span><i class="fas fa-book mr-2"></i>PKWU</span>
+        </div>
+        <p class="text-purple-300 text-lg mb-6">Membuat website panduan Mobile Legends sebagai tugas TIK dengan tekun dan penuh kreativitas</p>
+       </div><!-- Project Information -->
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 border-t border-purple-400/20 pt-8">
+        <div class="scroll-animate">
+         <h4 class="text-xl font-bold text-white mb-4 cyber-text">📱 Project Info</h4>
+         <ul class="space-y-3">
+          <li class="flex items-start"><i class="fas fa-check text-purple-400 mr-3 mt-1"></i>
+           <div>
+            <p class="font-semibold text-white">Judul</p>
+            <p class="text-sm text-purple-300">Mobile Legends Guide</p>
+           </div></li>
+          <li class="flex items-start"><i class="fas fa-check text-purple-400 mr-3 mt-1"></i>
+           <div>
+            <p class="font-semibold text-white">Tipe</p>
+            <p class="text-sm text-purple-300">Website Panduan Game</p>
+           </div></li>
+          <li class="flex items-start"><i class="fas fa-check text-purple-400 mr-3 mt-1"></i>
+           <div>
+            <p class="font-semibold text-white">Tema</p>
+            <p class="text-sm text-purple-300">Mobile Legends &amp; Gaming</p>
+           </div></li>
+         </ul>
+        </div>
+        <div class="scroll-animate">
+         <h4 class="text-xl font-bold text-white mb-4 cyber-text">🎯 Tujuan Pembuatan</h4>
+         <ul class="space-y-3">
+          <li class="flex items-start"><i class="fas fa-star text-yellow-400 mr-3 mt-1"></i> <p class="text-sm text-purple-300">Tugas mata pelajaran TIK</p></li>
+          <li class="flex items-start"><i class="fas fa-star text-yellow-400 mr-3 mt-1"></i> <p class="text-sm text-purple-300">Melatih kemampuan membuat website</p></li>
+          <li class="flex items-start"><i class="fas fa-star text-yellow-400 mr-3 mt-1"></i> <p class="text-sm text-purple-300">Merancang website yang menarik</p></li>
+          <li class="flex items-start"><i class="fas fa-star text-yellow-400 mr-3 mt-1"></i> <p class="text-sm text-purple-300">Belajar teknik web development</p></li>
+         </ul>
+        </div>
+       </div><!-- Skills -->
+       <div class="border-t border-purple-400/20 pt-8 mb-8">
+        <h4 class="text-xl font-bold text-white mb-4 cyber-text">🛠️ Teknologi yang Digunakan</h4>
+        <div class="flex flex-wrap gap-2"><span class="skill-badge"> <i class="fas fa-code mr-2"></i>HTML </span> <span class="skill-badge"> <i class="fas fa-palette mr-2"></i>CSS </span> <span class="skill-badge"> <i class="fas fa-js mr-2"></i>JavaScript (Dasar) </span> <span class="skill-badge"> <i class="fas fa-wind mr-2"></i>Tailwind CSS </span> <span class="skill-badge"> <i class="fas fa-responsive mr-2"></i>Responsive Design </span>
+        </div>
+       </div><!-- Learning Achievements -->
+       <div class="border-t border-purple-400/20 pt-8">
+        <h4 class="text-xl font-bold text-white mb-4 cyber-text">📚 Pengalaman &amp; Pembelajaran</h4>
+        <div class="space-y-3">
+         <div class="achievement-item scroll-animate">
+          <div class="flex items-start"><i class="fas fa-graduation-cap text-purple-400 mr-3 mt-1"></i>
+           <div>
+            <p class="font-semibold text-white">Memahami Struktur Dasar HTML</p>
+            <p class="text-sm text-purple-300">Mempelajari tag HTML, semantik, dan best practice</p>
+           </div>
+          </div>
+         </div>
+         <div class="achievement-item scroll-animate">
+          <div class="flex items-start"><i class="fas fa-graduation-cap text-purple-400 mr-3 mt-1"></i>
+           <div>
+            <p class="font-semibold text-white">Mengatur Layout dan Navigasi Website</p>
+            <p class="text-sm text-purple-300">Menciptakan layout responsif dengan CSS dan navigasi yang intuitif</p>
+           </div>
+          </div>
+         </div>
+         <div class="achievement-item scroll-animate">
+          <div class="flex items-start"><i class="fas fa-graduation-cap text-purple-400 mr-3 mt-1"></i>
+           <div>
+            <p class="font-semibold text-white">Membuat Website yang Responsif</p>
+            <p class="text-sm text-purple-300">Website bekerja sempurna di semua ukuran perangkat</p>
+           </div>
+          </div>
+         </div>
+         <div class="achievement-item scroll-animate">
+          <div class="flex items-start"><i class="fas fa-graduation-cap text-purple-400 mr-3 mt-1"></i>
+           <div>
+            <p class="font-semibold text-white">Implementasi JavaScript Interaktif</p>
+            <p class="text-sm text-purple-300">Menambahkan fitur dinamis dan animasi dengan JavaScript</p>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-900">
+     <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12 scroll-animate">
+       <h2 class="text-4xl font-bold cyber-text mb-4" style="font-family: 'Orbitron', monospace;">📞 Contact Us</h2>
+       <p class="text-purple-300 text-lg">Ada pertanyaan atau saran? Hubungi kami!</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+       <div class="scroll-animate">
+        <h3 class="text-2xl font-bold text-white mb-6 cyber-text">Get in Touch</h3>
+        <div class="space-y-4">
+         <div class="flex items-center"><i class="fas fa-envelope text-purple-400 w-6"></i> <span class="ml-3 text-purple-300">info@mlguide.com</span>
+         </div>
+         <div class="flex items-center"><i class="fas fa-phone text-purple-400 w-6"></i> <span class="ml-3 text-purple-300">+62 812-3456-7890</span>
+         </div>
+         <div class="flex items-center"><i class="fas fa-map-marker-alt text-purple-400 w-6"></i> <span class="ml-3 text-purple-300">Subang, Jawa Barat, Indonesia</span>
+         </div>
+        </div>
+        <div class="mt-8">
+         <h4 class="text-lg font-semibold text-white mb-4">Follow Us</h4>
+         <div class="flex space-x-4"><a href="#" class="text-purple-400 hover:text-purple-300 text-2xl glow-effect"><i class="fab fa-facebook"></i></a> <a href="#" class="text-purple-400 hover:text-purple-300 text-2xl glow-effect"><i class="fab fa-twitter"></i></a> <a href="#" class="text-purple-400 hover:text-purple-300 text-2xl glow-effect"><i class="fab fa-instagram"></i></a> <a href="#" class="text-purple-400 hover:text-purple-300 text-2xl glow-effect"><i class="fab fa-youtube"></i></a>
+         </div>
+        </div>
+       </div>
+       <div class="scroll-animate">
+        <form id="contact-form" class="space-y-6 gaming-card p-6 rounded-lg">
+         <div><label for="contact-name" class="block text-sm font-medium text-purple-300 mb-2">Nama</label> <input type="text" id="contact-name" required class="w-full px-4 py-2 bg-black/30 border border-purple-400/30 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 text-white">
+         </div>
+         <div><label for="contact-email" class="block text-sm font-medium text-purple-300 mb-2">Email</label> <input type="email" id="contact-email" required class="w-full px-4 py-2 bg-black/30 border border-purple-400/30 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 text-white">
+         </div>
+         <div><label for="contact-type" class="block text-sm font-medium text-purple-300 mb-2">Tipe Pesan</label> <select id="contact-type" required class="w-full px-4 py-2 bg-black/30 border border-purple-400/30 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 text-white"> <option value="">Pilih tipe pesan</option> <option value="question">Pertanyaan</option> <option value="suggestion">Saran</option> <option value="bug">Bug Report</option> <option value="other">Lainnya</option> </select>
+         </div>
+         <div><label for="contact-message" class="block text-sm font-medium text-purple-300 mb-2">Pesan</label> <textarea id="contact-message" rows="4" required class="w-full px-4 py-2 bg-black/30 border border-purple-400/30 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 text-white"></textarea>
+         </div><button type="submit" id="contact-submit" class="w-full gaming-btn text-white font-semibold py-3 px-6 rounded-lg transition-colors"> 🚀 Kirim Pesan </button>
+        </form>
+        <div id="contact-success" class="hidden mt-4 p-4 bg-green-900/50 border border-green-400 text-green-300 rounded-lg">
+         ✅ Pesan berhasil dikirim! Terima kasih atas feedback Anda.
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main><!-- Sidebar -->
+   <aside class="lg:fixed lg:right-0 lg:top-16 lg:w-80 lg:h-screen lg:overflow-y-auto gaming-card border-l border-purple-400/20 p-6">
+    <div class="space-y-8"><!-- Server Status -->
+     <div class="scroll-animate">
+      <h3 class="text-lg font-bold text-white mb-4 cyber-text">🌐 Server Status</h3>
+      <div class="space-y-3">
+       <div class="flex items-center justify-between"><span class="text-sm text-purple-300">Indonesia</span> <span class="flex items-center text-green-400">
+         <div class="w-2 h-2 bg-green-500 rounded-full mr-2 pulse-animation"></div> Online </span>
+       </div>
+       <div class="flex items-center justify-between"><span class="text-sm text-purple-300">Singapore</span> <span class="flex items-center text-green-400">
+         <div class="w-2 h-2 bg-green-500 rounded-full mr-2 pulse-animation"></div> Online </span>
+       </div>
+       <div class="flex items-center justify-between"><span class="text-sm text-purple-300">Malaysia</span> <span class="flex items-center text-yellow-400">
+         <div class="w-2 h-2 bg-yellow-500 rounded-full mr-2 pulse-animation"></div> Maintenance </span>
+       </div>
+      </div>
+     </div><!-- Latest Updates -->
+     <div class="scroll-animate">
+      <h3 class="text-lg font-bold text-white mb-4 cyber-text">📢 Latest Updates</h3>
+      <div class="space-y-4">
+       <div class="border-l-4 border-purple-500 pl-4 gaming-card p-3 rounded">
+        <h4 class="font-semibold text-white">Patch 1.7.42</h4>
+        <p class="text-sm text-purple-300">Hero balance updates dan bug fixes</p><span class="text-xs text-gray-400">2 hari yang lalu</span>
+       </div>
+       <div class="border-l-4 border-pink-500 pl-4 gaming-card p-3 rounded">
+        <h4 class="font-semibold text-white">New Hero: Arlott</h4>
+        <p class="text-sm text-purple-300">Fighter baru dengan skill unik</p><span class="text-xs text-gray-400">1 minggu yang lalu</span>
+       </div>
+      </div>
+     </div><!-- Meta Heroes -->
+     <div class="scroll-animate">
+      <h3 class="text-lg font-bold text-white mb-4 cyber-text">🏆 Meta Heroes</h3>
+      <div class="space-y-3">
+       <div class="flex items-center justify-between p-3 gaming-card rounded-lg glow-effect">
+        <div><span class="font-semibold text-white">⚡ Fanny</span>
+         <div class="text-xs text-purple-300">
+          Assassin
+         </div>
+        </div>
+        <div class="text-right">
+         <div class="text-sm font-semibold text-green-400">
+          95%
+         </div>
+         <div class="text-xs text-gray-400">
+          Win Rate
+         </div>
+        </div>
+       </div>
+       <div class="flex items-center justify-between p-3 gaming-card rounded-lg glow-effect">
+        <div><span class="font-semibold text-white">🗡️ Ling</span>
+         <div class="text-xs text-purple-300">
+          Assassin
+         </div>
+        </div>
+        <div class="text-right">
+         <div class="text-sm font-semibold text-green-400">
+          92%
+         </div>
+         <div class="text-xs text-gray-400">
+          Win Rate
+         </div>
+        </div>
+       </div>
+       <div class="flex items-center justify-between p-3 gaming-card rounded-lg glow-effect">
+        <div><span class="font-semibold text-white">🏹 Beatrix</span>
+         <div class="text-xs text-purple-300">
+          Marksman
+         </div>
+        </div>
+        <div class="text-right">
+         <div class="text-sm font-semibold text-green-400">
+          89%
+         </div>
+         <div class="text-xs text-gray-400">
+          Win Rate
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Quick Links -->
+     <div class="scroll-animate">
+      <h3 class="text-lg font-bold text-white mb-4 cyber-text">🔗 Quick Links</h3>
+      <div class="space-y-2"><a href="#" class="block text-purple-400 hover:text-purple-300 text-sm glow-effect">📊 Tier List Heroes</a> <a href="#" class="block text-purple-400 hover:text-purple-300 text-sm glow-effect">⚔️ Counter Pick Guide</a> <a href="#" class="block text-purple-400 hover:text-purple-300 text-sm glow-effect">🛡️ Item Build Calculator</a> <a href="#" class="block text-purple-400 hover:text-purple-300 text-sm glow-effect">🎯 Emblem Guide</a> <a href="#" class="block text-purple-400 hover:text-purple-300 text-sm glow-effect">📈 Rank Statistics</a>
+      </div>
+     </div>
+    </div>
+   </aside>
+  </div><!-- Footer -->
+  <footer class="bg-black/90 text-white py-12 border-t border-purple-400/20">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+     <div>
+      <h3 class="text-xl font-bold mb-4 cyber-text" style="font-family: 'Orbitron', monospace;">🎮 Mobile Legends Guide</h3>
+      <p class="text-purple-300 mb-4">Platform terlengkap untuk belajar Mobile Legends dari basic hingga pro level.</p>
+      <div class="flex space-x-4"><a href="#" class="text-purple-400 hover:text-purple-300 glow-effect"><i class="fab fa-facebook"></i></a> <a href="#" class="text-purple-400 hover:text-purple-300 glow-effect"><i class="fab fa-twitter"></i></a> <a href="#" class="text-purple-400 hover:text-purple-300 glow-effect"><i class="fab fa-instagram"></i></a> <a href="#" class="text-purple-400 hover:text-purple-300 glow-effect"><i class="fab fa-youtube"></i></a>
+      </div>
+     </div>
+     <div>
+      <h4 class="text-lg font-semibold mb-4 text-white">Heroes</h4>
+      <ul class="space-y-2 text-purple-300">
+       <li><a href="#" class="hover:text-purple-100">🛡️ Tank Heroes</a></li>
+       <li><a href="#" class="hover:text-purple-100">🏹 Marksman Heroes</a></li>
+       <li><a href="#" class="hover:text-purple-100">🔮 Mage Heroes</a></li>
+       <li><a href="#" class="hover:text-purple-100">🗡️ Assassin Heroes</a></li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="text-lg font-semibold mb-4 text-white">Guides</h4>
+      <ul class="space-y-2 text-purple-300">
+       <li><a href="#" class="hover:text-purple-100">📚 Beginner Guide</a></li>
+       <li><a href="#" class="hover:text-purple-100">⚡ Advanced Tips</a></li>
+       <li><a href="#" class="hover:text-purple-100">⚔️ Item Builds</a></li>
+       <li><a href="#" class="hover:text-purple-100">📊 Meta Analysis</a></li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="text-lg font-semibold mb-4 text-white">Community</h4>
+      <ul class="space-y-2 text-purple-300">
+       <li><a href="#" class="hover:text-purple-100">💬 Discord Server</a></li>
+       <li><a href="#" class="hover:text-purple-100">🏆 Tournament</a></li>
+       <li><a href="#" class="hover:text-purple-100">📝 Forum</a></li>
+       <li><a href="#" class="hover:text-purple-100">🛠️ Support</a></li>
+      </ul>
+     </div>
+    </div>
+    <div class="border-t border-purple-400/20 mt-8 pt-8 text-center">
+     <p id="footer-text" class="text-purple-300">© 2024 Mobile Legends Guide. All rights reserved.</p>
+    </div>
+   </div>
+  </footer><!-- Chatbot -->
+  <div class="chatbot"><button id="chatbot-toggle" class="gaming-btn w-14 h-14 rounded-full shadow-lg flex items-center justify-center glow-effect"> <i class="fas fa-comments text-xl"></i> </button>
+  </div>
+  <div id="chatbot-window" class="chatbot-window glass-effect rounded-lg">
+   <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-4 rounded-t-lg">
+    <div class="flex justify-between items-center">
+     <h3 class="font-semibold cyber-text">🤖 ML Assistant</h3><button id="chatbot-close" class="text-white hover:text-gray-200"> <i class="fas fa-times"></i> </button>
+    </div>
+   </div>
+   <div class="p-4 h-80 overflow-y-auto bg-black/80" id="chatbot-messages">
+    <div class="mb-4">
+     <div class="gaming-card rounded-lg p-3 text-sm text-purple-300">
+      🎮 Halo! Saya ML Assistant. Tanya saya tentang hero, item, atau strategi Mobile Legends!
+     </div>
+    </div>
+   </div>
+   <div class="p-4 border-t border-purple-400/20 bg-black/80 rounded-b-lg">
+    <div class="flex"><input type="text" id="chatbot-input" placeholder="Tanya sesuatu..." class="flex-1 px-3 py-2 bg-black/50 border border-purple-400/30 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-purple-100"> <button id="chatbot-send" class="gaming-btn px-4 py-2 rounded-r-lg"> <i class="fas fa-paper-plane"></i> </button>
+    </div>
+   </div>
+  </div>
+  <script>
+        // Configuration
+        const defaultConfig = {
+            site_title: "🎮 Mobile Legends Guide",
+            hero_title: "Bergabunglah dan Jadilah Legenda!",
+            hero_subtitle: "Panduan lengkap untuk menguasai Mobile Legends",
+            footer_text: "© 2024 Mobile Legends Guide. All rights reserved.",
+            creator_name: "Hadif Abyan",
+            creator_school: "SMA Negeri 1 Subang",
+            creator_subject: "PKWU",
+            background_color: "#1a0b2e",
+            surface_color: "#2d1b4e",
+            text_color: "#f0e6ff",
+            primary_action_color: "#7c3aed",
+            secondary_action_color: "#ec4899",
+            font_family: "Rajdhani",
+            font_size: 16
+        };
+
+        let currentLanguage = 'id';
+        let isDarkMode = true;
+
+        // Heroes data - Complete Mobile Legends Hero List
+        const heroesData = [
+            // Assassins
+            { name: "Fanny", role: "assassin", winRate: "95%", difficulty: "Expert", emoji: "⚡" },
+            { name: "Ling", role: "assassin", winRate: "92%", difficulty: "Expert", emoji: "🗡️" },
+            { name: "Gusion", role: "assassin", winRate: "87%", difficulty: "Hard", emoji: "🔪" },
+            { name: "Lancelot", role: "assassin", winRate: "85%", difficulty: "Hard", emoji: "⚔️" },
+            { name: "Hayabusa", role: "assassin", winRate: "83%", difficulty: "Hard", emoji: "🥷" },
+            { name: "Karina", role: "assassin", winRate: "81%", difficulty: "Medium", emoji: "🌊" },
+            { name: "Helcurt", role: "assassin", winRate: "79%", difficulty: "Medium", emoji: "🦂" },
+            { name: "Natalia", role: "assassin", winRate: "77%", difficulty: "Hard", emoji: "🔍" },
+            { name: "Saber", role: "assassin", winRate: "75%", difficulty: "Easy", emoji: "🤖" },
+            { name: "Aamon", role: "assassin", winRate: "88%", difficulty: "Hard", emoji: "👤" },
+            { name: "Benedetta", role: "assassin", winRate: "84%", difficulty: "Hard", emoji: "🗡️" },
+            { name: "Paquito", role: "assassin", winRate: "82%", difficulty: "Medium", emoji: "🥊" },
+            { name: "Mathilda", role: "assassin", winRate: "80%", difficulty: "Medium", emoji: "🦋" },
+            { name: "Hanzo", role: "assassin", winRate: "78%", difficulty: "Hard", emoji: "👹" },
+            { name: "Selena", role: "assassin", winRate: "86%", difficulty: "Expert", emoji: "🌙" },
+            { name: "Joy", role: "assassin", winRate: "83%", difficulty: "Medium", emoji: "🎭" },
+            { name: "Arlott", role: "assassin", winRate: "85%", difficulty: "Hard", emoji: "🔥" },
+
+            // Marksman
+            { name: "Beatrix", role: "marksman", winRate: "89%", difficulty: "Hard", emoji: "🏹" },
+            { name: "Claude", role: "marksman", winRate: "79%", difficulty: "Medium", emoji: "🎯" },
+            { name: "Granger", role: "marksman", winRate: "87%", difficulty: "Medium", emoji: "🎵" },
+            { name: "Bruno", role: "marksman", winRate: "85%", difficulty: "Medium", emoji: "⚽" },
+            { name: "Wanwan", role: "marksman", winRate: "83%", difficulty: "Hard", emoji: "🎪" },
+            { name: "Karrie", role: "marksman", winRate: "81%", difficulty: "Medium", emoji: "💫" },
+            { name: "Moskov", role: "marksman", winRate: "79%", difficulty: "Hard", emoji: "🏹" },
+            { name: "Irithel", role: "marksman", winRate: "77%", difficulty: "Medium", emoji: "🦄" },
+            { name: "Lesley", role: "marksman", winRate: "75%", difficulty: "Medium", emoji: "🎯" },
+            { name: "Layla", role: "marksman", winRate: "73%", difficulty: "Easy", emoji: "🔫" },
+
+            // Mages
+            { name: "Pharsa", role: "mage", winRate: "83%", difficulty: "Medium", emoji: "🔮" },
+            { name: "Kagura", role: "mage", winRate: "77%", difficulty: "Hard", emoji: "🌸" },
+            { name: "Lunox", role: "mage", winRate: "85%", difficulty: "Hard", emoji: "🌙" },
+            { name: "Harith", role: "mage", winRate: "87%", difficulty: "Medium", emoji: "🔵" },
+            { name: "Lylia", role: "mage", winRate: "81%", difficulty: "Medium", emoji: "🧸" },
+            { name: "Esmeralda", role: "mage", winRate: "79%", difficulty: "Medium", emoji: "💎" },
+            { name: "Chang'e", role: "mage", winRate: "75%", difficulty: "Easy", emoji: "🌙" },
+            { name: "Valir", role: "mage", winRate: "73%", difficulty: "Medium", emoji: "🔥" },
+
+            // Tanks
+            { name: "Khufra", role: "tank", winRate: "85%", difficulty: "Medium", emoji: "🛡️" },
+            { name: "Tigreal", role: "tank", winRate: "83%", difficulty: "Easy", emoji: "⚔️" },
+            { name: "Johnson", role: "tank", winRate: "81%", difficulty: "Medium", emoji: "🚗" },
+            { name: "Grock", role: "tank", winRate: "79%", difficulty: "Medium", emoji: "🏔️" },
+            { name: "Uranus", role: "tank", winRate: "77%", difficulty: "Medium", emoji: "🌌" },
+            { name: "Hylos", role: "tank", winRate: "75%", difficulty: "Medium", emoji: "🐎" },
+
+            // Fighters
+            { name: "Chou", role: "fighter", winRate: "88%", difficulty: "Hard", emoji: "🥋" },
+            { name: "Jawhead", role: "fighter", winRate: "86%", difficulty: "Medium", emoji: "🤖" },
+            { name: "Aldous", role: "fighter", winRate: "84%", difficulty: "Medium", emoji: "👊" },
+            { name: "X.Borg", role: "fighter", winRate: "82%", difficulty: "Medium", emoji: "🔥" },
+            { name: "Dyrroth", role: "fighter", winRate: "80%", difficulty: "Medium", emoji: "👹" },
+            { name: "Terizla", role: "fighter", winRate: "78%", difficulty: "Medium", emoji: "🔨" },
+
+            // Support
+            { name: "Rafaela", role: "support", winRate: "81%", difficulty: "Easy", emoji: "💚" },
+            { name: "Angela", role: "support", winRate: "83%", difficulty: "Medium", emoji: "👼" },
+            { name: "Diggie", role: "support", winRate: "79%", difficulty: "Medium", emoji: "🐣" },
+            { name: "Kaja", role: "support", winRate: "77%", difficulty: "Medium", emoji: "🦅" },
+            { name: "Carmilla", role: "support", winRate: "75%", difficulty: "Medium", emoji: "🧛" },
+            { name: "Floryn", role: "support", winRate: "85%", difficulty: "Easy", emoji: "🌸" }
+        ];
+
+        // Language translations
+        const translations = {
+            id: {
+                home: "Home",
+                heroes: "Heroes",
+                guides: "Guides", 
+                events: "Events",
+                gallery: "Gallery",
+                portfolio: "Portfolio",
+                contact: "Contact",
+                searchPlaceholder: "🔍 Cari hero, item, atau guide...",
+                heroTitle: "Bergabunglah dan Jadilah Legenda!",
+                heroSubtitle: "Panduan lengkap untuk menguasai Mobile Legends"
+            },
+            en: {
+                home: "Home",
+                heroes: "Heroes", 
+                guides: "Guides",
+                events: "Events",
+                gallery: "Gallery",
+                portfolio: "Portfolio",
+                contact: "Contact",
+                searchPlaceholder: "🔍 Search heroes, items, or guides...",
+                heroTitle: "Join and Become a Legend!",
+                heroSubtitle: "Complete guide to master Mobile Legends"
+            }
+        };
+
+        // Initialize
+        async function init() {
+            if (window.elementSdk) {
+                await window.elementSdk.init({
+                    defaultConfig,
+                    onConfigChange: async (config) => {
+                        // Update site title
+                        const navTitle = document.getElementById('nav-title');
+                        if (navTitle) navTitle.textContent = config.site_title || defaultConfig.site_title;
+
+                        // Update hero section
+                        const heroTitle = document.getElementById('hero-title');
+                        if (heroTitle) heroTitle.textContent = config.hero_title || defaultConfig.hero_title;
+
+                        const heroSubtitle = document.getElementById('hero-subtitle');
+                        if (heroSubtitle) heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+
+                        // Update footer
+                        const footerText = document.getElementById('footer-text');
+                        if (footerText) footerText.textContent = config.footer_text || defaultConfig.footer_text;
+
+                        // Update creator name
+                        const creatorName = document.getElementById('creator-name');
+                        if (creatorName) creatorName.textContent = config.creator_name || defaultConfig.creator_name;
+
+                        // Apply colors
+                        const bgColor = config.background_color || defaultConfig.background_color;
+                        const surfaceColor = config.surface_color || defaultConfig.surface_color;
+                        const textColor = config.text_color || defaultConfig.text_color;
+                        const primaryColor = config.primary_action_color || defaultConfig.primary_action_color;
+                        const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+
+                        document.documentElement.style.setProperty('--bg-color', bgColor);
+                        document.documentElement.style.setProperty('--surface-color', surfaceColor);
+                        document.documentElement.style.setProperty('--text-color', textColor);
+                        document.documentElement.style.setProperty('--primary-color', primaryColor);
+                        document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+
+                        // Apply font
+                        const customFont = config.font_family || defaultConfig.font_family;
+                        const baseFontStack = 'system-ui, -apple-system, sans-serif';
+                        document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+                        // Apply font size
+                        const baseSize = config.font_size || defaultConfig.font_size;
+                        document.documentElement.style.fontSize = `${baseSize}px`;
+                    },
+                    mapToCapabilities: (config) => ({
+                        recolorables: [
+                            {
+                                get: () => config.background_color || defaultConfig.background_color,
+                                set: (value) => {
+                                    config.background_color = value;
+                                    window.elementSdk.setConfig({ background_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.surface_color || defaultConfig.surface_color,
+                                set: (value) => {
+                                    config.surface_color = value;
+                                    window.elementSdk.setConfig({ surface_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.text_color || defaultConfig.text_color,
+                                set: (value) => {
+                                    config.text_color = value;
+                                    window.elementSdk.setConfig({ text_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                                set: (value) => {
+                                    config.primary_action_color = value;
+                                    window.elementSdk.setConfig({ primary_action_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                                set: (value) => {
+                                    config.secondary_action_color = value;
+                                    window.elementSdk.setConfig({ secondary_action_color: value });
+                                }
+                            }
+                        ],
+                        borderables: [],
+                        fontEditable: {
+                            get: () => config.font_family || defaultConfig.font_family,
+                            set: (value) => {
+                                config.font_family = value;
+                                window.elementSdk.setConfig({ font_family: value });
+                            }
+                        },
+                        fontSizeable: {
+                            get: () => config.font_size || defaultConfig.font_size,
+                            set: (value) => {
+                                config.font_size = value;
+                                window.elementSdk.setConfig({ font_size: value });
+                            }
+                        }
+                    }),
+                    mapToEditPanelValues: (config) => new Map([
+                        ["site_title", config.site_title || defaultConfig.site_title],
+                        ["hero_title", config.hero_title || defaultConfig.hero_title],
+                        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+                        ["footer_text", config.footer_text || defaultConfig.footer_text],
+                        ["creator_name", config.creator_name || defaultConfig.creator_name],
+                        ["creator_school", config.creator_school || defaultConfig.creator_school],
+                        ["creator_subject", config.creator_subject || defaultConfig.creator_subject]
+                    ])
+                });
+            }
+
+            setupEventListeners();
+            renderHeroes();
+            startCounterAnimation();
+            setupScrollAnimations();
+            setupParallaxEffect();
+        }
+
+        // Event Listeners
+        function setupEventListeners() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn?.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle?.addEventListener('click', toggleTheme);
+
+            const languageSwitcher = document.getElementById('language-switcher');
+            languageSwitcher?.addEventListener('change', (e) => {
+                switchLanguage(e.target.value);
+            });
+
+            const heroFilters = document.querySelectorAll('.hero-filter');
+            heroFilters.forEach(filter => {
+                filter.addEventListener('click', (e) => {
+                    heroFilters.forEach(f => f.classList.remove('active'));
+                    heroFilters.forEach(f => {
+                        if (!f.classList.contains('gaming-btn')) {
+                            f.classList.add('bg-gray-800', 'text-purple-300');
+                        }
+                    });
+                    
+                    e.target.classList.add('active');
+                    if (!e.target.classList.contains('gaming-btn')) {
+                        e.target.classList.remove('bg-gray-800', 'text-purple-300');
+                    }
+                    
+                    filterHeroes(e.target.dataset.role);
+                });
+            });
+
+            const contactForm = document.getElementById('contact-form');
+            contactForm?.addEventListener('submit', handleContactSubmit);
+
+            const chatbotToggle = document.getElementById('chatbot-toggle');
+            const chatbotWindow = document.getElementById('chatbot-window');
+            const chatbotClose = document.getElementById('chatbot-close');
+            const chatbotSend = document.getElementById('chatbot-send');
+            const chatbotInput = document.getElementById('chatbot-input');
+
+            chatbotToggle?.addEventListener('click', () => {
+                chatbotWindow.style.display = chatbotWindow.style.display === 'block' ? 'none' : 'block';
+            });
+
+            chatbotClose?.addEventListener('click', () => {
+                chatbotWindow.style.display = 'none';
+            });
+
+            chatbotSend?.addEventListener('click', handleChatbotMessage);
+            chatbotInput?.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleChatbotMessage();
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle('dark', isDarkMode);
+            
+            const themeIcon = document.querySelector('#theme-toggle i');
+            if (themeIcon) {
+                themeIcon.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            const t = translations[lang];
+            
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            navLinks.forEach((link, index) => {
+                const keys = ['home', 'heroes', 'guides', 'events', 'gallery', 'portfolio', 'contact'];
+                if (keys[index] && t[keys[index]]) {
+                    link.textContent = t[keys[index]];
+                }
+            });
+
+            const searchInput = document.getElementById('main-search');
+            if (searchInput && t.searchPlaceholder) {
+                searchInput.placeholder = t.searchPlaceholder;
+            }
+        }
+
+        function renderHeroes(filter = 'all') {
+            const heroesGrid = document.getElementById('heroes-grid');
+            if (!heroesGrid) return;
+
+            let filteredHeroes;
+            if (filter === 'all') {
+                const featuredHeroes = [
+                    ...heroesData.filter(hero => hero.role === 'assassin').slice(0, 2),
+                    ...heroesData.filter(hero => hero.role === 'marksman').slice(0, 2),
+                    ...heroesData.filter(hero => hero.role === 'mage').slice(0, 2),
+                    ...heroesData.filter(hero => hero.role === 'tank').slice(0, 2),
+                    ...heroesData.filter(hero => hero.role === 'fighter').slice(0, 2),
+                    ...heroesData.filter(hero => hero.role === 'support').slice(0, 2)
+                ];
+                filteredHeroes = featuredHeroes;
+            } else {
+                filteredHeroes = heroesData.filter(hero => hero.role === filter);
+            }
+            
+            heroesGrid.innerHTML = filteredHeroes.map(hero => `
+                <div class="hero-card gaming-card rounded-lg overflow-hidden scroll-animate glow-effect">
+                    <div class="h-48 bg-gradient-to-br from-${getHeroColor(hero.role)}-500 to-${getHeroColor(hero.role)}-700 flex items-center justify-center relative">
+                        <div class="text-white text-center">
+                            <div class="text-6xl mb-2">${hero.emoji}</div>
+                            <div class="text-xl font-bold cyber-text" style="font-family: 'Orbitron', monospace;">${hero.name}</div>
+                        </div>
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-semibold text-${getHeroColor(hero.role)}-400 uppercase">${getRoleIcon(hero.role)} ${hero.role}</span>
+                            <span class="text-sm text-purple-300">${hero.difficulty}</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">${hero.name}</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-purple-300">Win Rate: ${hero.winRate}</span>
+                            <button class="text-purple-400 hover:text-purple-300 font-semibold text-sm glow-effect">View Guide ⚡</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterHeroes(role) {
+            renderHeroes(role);
+        }
+
+        function getHeroColor(role) {
+            const colors = {
+                tank: 'blue',
+                marksman: 'green', 
+                mage: 'purple',
+                assassin: 'red',
+                fighter: 'orange',
+                support: 'yellow'
+            };
+            return colors[role] || 'gray';
+        }
+
+        function getRoleIcon(role) {
+            const icons = {
+                tank: '🛡️',
+                marksman: '🏹',
+                mage: '🔮',
+                assassin: '🗡️',
+                fighter: '⚔️',
+                support: '💚'
+            };
+            return icons[role] || '⚔️';
+        }
+
+        function startCounterAnimation() {
+            const counters = document.querySelectorAll('.counter-animation');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.dataset.target);
+                        animateCounter(counter, target);
+                        observer.unobserve(counter);
+                    }
+                });
+            });
+
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 20);
+        }
+
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.scroll-animate').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        function setupParallaxEffect() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.parallax');
+                
+                parallaxElements.forEach(element => {
+                    const speed = 0.5;
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('contact-submit');
+            const successDiv = document.getElementById('contact-success');
+            
+            submitBtn.textContent = '⏳ Mengirim...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                successDiv.classList.remove('hidden');
+                e.target.reset();
+                showToast("✅ Pesan berhasil dikirim! Terima kasih atas feedback Anda.", "success");
+                submitBtn.textContent = '🚀 Kirim Pesan';
+                submitBtn.disabled = false;
+            }, 1000);
+        }
+
+        function handleChatbotMessage() {
+            const input = document.getElementById('chatbot-input');
+            const messagesContainer = document.getElementById('chatbot-messages');
+            
+            if (!input.value.trim()) return;
+
+            const userMessage = document.createElement('div');
+            userMessage.className = 'mb-4 text-right';
+            userMessage.innerHTML = `
+                <div class="gaming-btn text-white rounded-lg p-3 text-sm inline-block max-w-xs">
+                    ${input.value}
+                </div>
+            `;
+            messagesContainer.appendChild(userMessage);
+
+            const botResponse = generateBotResponse(input.value);
+            
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.className = 'mb-4';
+                botMessage.innerHTML = `
+                    <div class="gaming-card rounded-lg p-3 text-sm max-w-xs text-purple-300">
+                        ${botResponse}
+                    </div>
+                `;
+                messagesContainer.appendChild(botMessage);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 1000);
+
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function generateBotResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('fanny')) {
+                return '⚡ Fanny adalah assassin dengan mobility tinggi. Gunakan cable untuk bergerak cepat dan combo skill untuk burst damage maksimal!';
+            } else if (lowerMessage.includes('build') || lowerMessage.includes('item')) {
+                return '⚔️ Untuk build item, sesuaikan dengan role hero dan situasi game. Tank butuh defense, marksman butuh damage, mage butuh magic power.';
+            } else if (lowerMessage.includes('meta')) {
+                return '🏆 Meta heroes saat ini: Fanny, Ling, Beatrix untuk carry. Khufra, Tigreal untuk tank. Pharsa, Kagura untuk mage.';
+            } else if (lowerMessage.includes('rank')) {
+                return '📈 Tips ranking: Fokus pada 2-3 hero, komunikasi dengan tim, ward vision, dan jangan toxic. Consistency is key!';
+            } else {
+                return '🤖 Maaf, saya belum mengerti pertanyaan Anda. Coba tanya tentang hero, build item, meta, atau tips ranking!';
+            }
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `fixed top-20 right-4 z-50 p-4 rounded-lg shadow-lg text-white max-w-sm gaming-card glow-effect ${
+                type === 'success' ? 'border-green-400' : 
+                type === 'error' ? 'border-red-400' : 'border-purple-400'
+            }`;
+            toast.textContent = message;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 5000);
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c86cd283680ff85',t:'MTc3MDE3MjgwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
